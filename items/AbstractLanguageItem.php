@@ -3,14 +3,14 @@
 namespace cetver\LanguageSelector\items;
 
 use yii\base\InvalidConfigException;
-use yii\base\Object;
+use yii\base\BaseObject;
 
 /**
  * Class AbstractLanguageItem is a simple implementation that other classes can inherit from.
  *
  * @package cetver\LanguageSelector\items
  */
-abstract class AbstractLanguageItem extends Object
+abstract class AbstractLanguageItem extends BaseObject
 {
     /**
      * @var array|callable the list of available languages.
