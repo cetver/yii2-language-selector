@@ -41,6 +41,19 @@ class DropDownLanguageItemTest extends AbstractUnitTest
             ],
             $item->toArray()
         );
+        $this->tester->assertSame(
+            [
+                'label' => 'English',
+                'url' => ['#'],
+                'items' => [
+                    [
+                        'label' => 'Russian',
+                        'url' => '/site/index?language=ru',
+                    ],
+                ],
+            ],
+            $item->toArray()
+        );
 
         Yii::$app->language = 'ru';
         $item = new DropDownLanguageItem(['languages' => $this->languages]);

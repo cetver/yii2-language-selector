@@ -71,7 +71,8 @@ class DropDownLanguageItem extends AbstractLanguageItem
      */
     public function toArray()
     {
-        $topItemLabel = ArrayHelper::remove($this->languages, Yii::$app->language);
+        $languages = $this->languages;
+        $topItemLabel = ArrayHelper::remove($languages, Yii::$app->language);
         if ($topItemLabel === null) {
             throw new InvalidConfigException(sprintf(
                 'The "%s" language does not exists in "%s::$languages"',
@@ -84,7 +85,7 @@ class DropDownLanguageItem extends AbstractLanguageItem
             'url' => ['#'],
         ]);
         $queryParams = Yii::$app->getRequest()->getQueryParams();
-        foreach ($this->languages as $code => $name) {
+        foreach ($languages as $code => $name) {
             $queryParams[$this->queryParam] = $code;
             $route = array_merge([''], $queryParams);
             $item['items'][] = ArrayHelper::merge($this->options, [
